@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fullscreen Portrait Image</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fullscreen Image</title>
 
   <style>
     html, body {
-      height: 100%;
       margin: 0;
-      background: #000; /* fallback background */
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: #000; /* fallback background while image loads */
       overflow: hidden;
     }
 
-    /* Container fills viewport */
+    /* Container that centers and scales the image */
     .fullscreen {
       position: fixed;
       inset: 0;
@@ -22,11 +24,13 @@
       justify-content: center;
     }
 
-    /* Image takes full height (portrait), keeps aspect ratio */
+    /* Responsive image that fits any screen */
     .fullscreen img {
-      height: 100vh;           /* full viewport height */
-      width: auto;             /* keep portrait ratio */
-      object-fit: contain;
+      max-width: 100vw;   /* Fit to viewport width */
+      max-height: 100vh;  /* Fit to viewport height */
+      width: auto;
+      height: auto;
+      object-fit: contain; /* keep full image visible */
       object-position: center;
       display: block;
       user-select: none;
